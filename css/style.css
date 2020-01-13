@@ -11,22 +11,28 @@ html{
 
 header{
     height: 100vh;
+    width: 100%;
     background-color: #39baa8;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     overflow: hidden;
-    font-family: 'Gelasio', serif;
+    font-family: 'Oswald', sans-serif;
+    z-index: 1;
 }
 
 main {
     height: 100vh;
     background-color: gray;
+    margin-top: 100vh;
+    position: relative;
+    z-index: 2;
 }
 header img {
 position: absolute;
 bottom: 0;
-right: 0;
-height: 60%;
-right: -5%;
+height: 65%;
+right: -40%;
 }
 
 header nav {
@@ -38,14 +44,16 @@ header nav {
 
  header hgroup {
 position: absolute;
-top: 15%;
-left: 10%;
+top: 10%;
+left: 7%;
 text-transform: uppercase;
+z-index: 1;
  }
 
  header h1{
-     font-size: 4rem;
-     font-weight: 400;
+     font-size: 6rem;
+     font-weight: 500;
+     
  }
 
  header h3 {
@@ -53,12 +61,56 @@ text-transform: uppercase;
  }
  
  #arrow {
-     width: 96px;
-     height: 96px;
-     border: 5px solid black;
+     width:64px;
+     height: 64px;
+     border: 3px solid black;
     position: absolute;
-    bottom: 10%;
+    bottom: 7%;
     left: 50%;
     transform: translateX(-50%);
-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 5rem;
+    text-align: center;
+    text-shadow: 0px -15px 0 black, 0 -30px 0 black;
+    overflow: hidden;
+    transition: 1s ease;
+}
+
+#arrow:hover{
+    text-shadow: 0px -15px 0 white, 0 -30px 0 white;
+    color: white;
+    border-color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.fa.fa-angle-down {
+    animation: arrow 1.6s infinite linear;
+}
+
+ @media (orientation: portrait) {
+     h3 span::after { 
+         content: '\A';
+         white-space: pre;
+     }
+    }
+
+@media (orientation: landscape){
+    header img {
+        height: 80%;
+        right: 0%;
+        }
+    
+}
+ 
+@keyframes arrow {
+0% {
+    transform: translateY(-80px)
  }
+50% {
+    transform: translateY(0px) 
+ }
+100% {
+    transform: translateY(80px)
+ }
+}
